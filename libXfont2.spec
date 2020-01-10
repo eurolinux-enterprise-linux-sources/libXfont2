@@ -1,14 +1,12 @@
 Summary: X.Org X11 libXfont2 runtime library
 Name: libXfont2
-Version: 2.0.1
-Release: 2%{?dist}
+Version: 2.0.3
+Release: 1%{?dist}
 License: MIT
 Group: System Environment/Libraries
-URL: http://www.x.org
+URL: https://www.x.org
 
-Source0: http://www.x.org/pub/individual/lib/%{name}-%{version}.tar.bz2
-# Misc fixes cherry picked from upstream git master
-Patch0: libXfont-2.0.1-misc-fixes.patch
+Source0: https://www.x.org/pub/individual/lib/%{name}-%{version}.tar.bz2
 
 BuildRequires: autoconf automake libtool
 BuildRequires: pkgconfig(fontsproto)
@@ -31,7 +29,6 @@ X.Org X11 libXfont development package
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 autoreconf -v --install --force
@@ -59,6 +56,9 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %{_libdir}/pkgconfig/xfont2.pc
 
 %changelog
+* Tue Apr 24 2018 Adam Jackson <ajax@redhat.com> - 2.0.3-1
+- libXfont 2.0.3
+
 * Wed Sep 28 2016 Hans de Goede <hdegoede@redhat.com> - 2.0.1-2
 - Add some fixes from upstream git master
 
